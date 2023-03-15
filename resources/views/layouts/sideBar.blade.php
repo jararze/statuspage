@@ -23,16 +23,8 @@
     <div class="menu">
         <ul class="list">
             <li class="header">MAIN NAVIGATION</li>
-            <li class="active open"><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-home"></i><span>Dashboard</span></a>
-                <ul class="ml-menu">
-                    <li class="active"><a href="index.html">Main Dashboard</a></li>
-                    <li><a href="dashboard-rtl.html">RTL Dashboard</a></li>
-                    <li><a href="index2.html">Horizontal Menu</a></li>
-                    <li><a href="blog-dashboard.html">Blog Dashboard</a></li>
-                    <li><a href="ec-dashboard.html">Ecommerce Dashboard</a></li>
-                    <li><a href="iot-dashboard.html">Iot Dashboard</a></li>
-                </ul>
-            </li>
+            <li class="active open"><a href="/dashboard"><i class="zmdi zmdi-home"></i><span>Dashboard</span> </a></li>
+            <li><a href="/timeline"><i class="zmdi zmdi-time-restore"></i><span>TimeLine</span> </a></li>
             <li><a href="widgets.html"><i class="zmdi zmdi-delicious"></i><span>Widgets</span> </a></li>
             <li><a href="mail-inbox.html"><i class="zmdi zmdi-email"></i><span>Inbox</span> </a></li>
             <li><a href="blog-dashboard.html"><i class="zmdi zmdi-blogger"></i><span>Blogger</span> </a></li>
@@ -155,8 +147,8 @@
                     </li>
                 </ul>
             </li>
-            <li><a href="changelogs.html"><i class="zmdi zmdi-time-restore"></i><span>Changelogs</span> </a></li>
         </ul>
     </div>
+
     <!-- #Menu -->
 </aside>

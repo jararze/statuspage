@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Auth\LoginRegisterController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,32 +18,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-/*Route::view('/login', "sign-in")->name('login');
-Route::view('/register', "sign-up")->name('register');
-Route::view('/dashboard', "dashboard")->name('dashboard');*/
-
-//Auth::routes([
-//    "verify" => true
-//]);
-
-Route::controller(LoginRegisterController::class)->group(function(){
-
-    Route::get('/register', 'register')->name('register');
-    Route::post('/store', 'store')->name('store');
-    Route::get('/login', 'login')->name('login');
-    Route::post('/authenticate', 'authenticate')->name('authenticate');
-    Route::get('/dashboard', 'dashboard')->name('dashboard');
-    Route::get('/logout', 'logout')->name('logout');
+Route::get('/timeline', function(){
+    return view('timeline');
 });
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
-//Route::controller(LoginController::class)->group(function () {
-//    Route::post('/session-startup', 'login');
-//    Route::post('/check-register', 'register');
-////    Route::get('/logout', 'logout');
-//});
-
-//Route::post('/check-register',[LoginController::class,'register'])->name('check-register');
-//Route::post('/session-startup',[LoginController::class,'login'])->name('session-startup');
-//Route::get('/logout',[LoginController::class,'logout'])->name('logout');
+require __DIR__.'/auth.php';
