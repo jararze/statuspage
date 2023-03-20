@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PhoneNumberVerifyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,9 +23,17 @@ Route::get('/timeline', function(){
     return view('timeline');
 });
 
+//Route::get('phone/verify', function(){
+//    return view('phoneverify.show');
+//});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified', 'verifiedphone'])->name('dashboard');
+//})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('phone/verify', [PhoneNumberVerifyController::class, 'show'])->name('phoneverify.show');
+Route::post('phone/verify', [PhoneNumberVerifyController::class, 'verify'])->name('phoneverify.verify');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

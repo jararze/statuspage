@@ -37,9 +37,9 @@
             @include('layouts.sideBar')
 
             <!-- Page Content -->
-{{--            <main>--}}
-{{--                {{ $slot }}--}}
-{{--            </main>--}}
+            <main>
+                {{ $slot }}
+            </main>
 
             @yield('content')
         </div>

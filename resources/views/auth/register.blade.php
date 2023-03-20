@@ -1,4 +1,7 @@
 <x-guest-layout>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
+
+
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
@@ -14,6 +17,13 @@
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        </div>
+
+        <!-- Phone Address -->
+        <div class="mt-4">
+            <x-input-label for="phone" :value="__('Phone')" />
+            <x-text-input id="phone" class="block mt-1 w-full" type="text" name="phone" :value="old('phone')" required autocomplete="username" />
+            <x-input-error :messages="$errors->get('phone')" class="mt-2" />
         </div>
 
         <!-- Password -->
@@ -49,4 +59,14 @@
             </x-primary-button>
         </div>
     </form>
+    <div class="alert alert-info" style="display: none;"></div>
 </x-guest-layout>
+<script>
+    const phoneInputField    = document.querySelector("#phone");
+    const phoneInput = window.intlTelInput(phoneInputField, {utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",});
+
+    phoneInputField.addEventListener("change", (event) => {
+        const phoneNumber = phoneInput.getNumber();
+        phoneInputField.value = phoneNumber;
+    });
+</script>

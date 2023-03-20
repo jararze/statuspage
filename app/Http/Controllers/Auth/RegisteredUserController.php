@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
+//namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
@@ -15,6 +16,12 @@ use Illuminate\View\View;
 
 class RegisteredUserController extends Controller
 {
+
+    protected function registered(Request $request, User $user)
+    {
+        $user->varifyByCall();
+        return redirect($this->redirectPath());
+    }
     /**
      * Display the registration view.
      */
@@ -33,19 +40,22 @@ class RegisteredUserController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+            'phone' => ['required', 'string', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
+            'phone' => $request->phone,
             'password' => Hash::make($request->password),
         ]);
 
         event(new Registered($user));
 
         Auth::login($user);
-
-        return redirect(RouteServiceProvider::HOME);
+        $user->varifyByCall();
+        return redirect(RouteServiceProvider::PHONE);
+//        dd($this->redirectPath());
     }
 }
