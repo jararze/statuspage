@@ -50,14 +50,14 @@
                         {{--                        <div class="header">--}}
                         {{--                            <h2> INPUT <small>Different sizes and widths</small> </h2>--}}
                         {{--                        </div>--}}
-                        <form method="POST" action="">
+                        <form method="POST" action="{{ route('createIncident') }}">
                             @csrf
                             <div class="body">
                                 <div class="row clearfix">
                                     <div class="col-sm-10">
                                         <div class="form-group form-float">
                                             <div class="form-line">
-                                                <input type="text" class="form-control">
+                                                <input type="text" class="form-control" name="title">
                                                 <label class="form-label">Incident Title</label>
                                             </div>
                                         </div>
@@ -67,7 +67,7 @@
                                     <div class="col-sm-12">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <textarea rows="4" class="form-control no-resize" placeholder="In-depth description"></textarea>
+                                                <textarea rows="4" class="form-control no-resize" placeholder="In-depth description" name="description"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -123,7 +123,7 @@
                                 </div>
                             </div>
                             <div class="row clearfix" style="margin:25px 0 25px 25px;">
-                                <button type="button" class="btn btn-raised bg-green waves-effect"> <i class="material-icons">save</i> SAVE</button>
+                                <button type="submit" class="btn btn-raised bg-green waves-effect"> <i class="material-icons">save</i> SAVE</button>
                                 <button type="button" class="btn btn-raised bg-pink waves-effect" style="margin-left: 10px"> <i class="material-icons">report_problem</i> CANCEL </button>
                             </div>
                         </form>

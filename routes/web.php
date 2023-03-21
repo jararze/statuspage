@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\IncidentsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PhoneNumberVerifyController;
 use Illuminate\Support\Facades\Route;
@@ -23,9 +24,12 @@ Route::get('/timeline', function(){
     return view('timeline');
 });
 
-Route::get('/createIncident', function() {
-    return view('createIncident');
-});
+Route::get('createIncident', [IncidentsController::class, 'form'])->name('formIncident');
+Route::post('createIncident', [IncidentsController::class, 'store'])->name('createIncident');
+
+//Route::get('/createIncident', function() {
+//    return view('createIncident');
+//});
 //Route::get('phone/verify', function(){
 //    return view('phoneverify.show');
 //});
