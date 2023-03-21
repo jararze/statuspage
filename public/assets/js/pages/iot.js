@@ -1,7 +1,7 @@
 ﻿$(function () {
-    "use strict";  
+    "use strict";
     initSparkline();
-    getMorris('donut', 'donut_chart');
+    // getMorris('donut', 'donut_chart');
     getMorris('bar', 'bar_chart');
 });
 
@@ -38,32 +38,32 @@ function getMorris(type, element) {
             element: element,
             data: [{
                 x: 'Mon',
-                y: 3,
-                z: 7
+                y: 7,
+                z: 3
             }, {
                 x: 'Tue',
-                y: 3.5,
-                z: 6
+                y: 6,
+                z: 3
             }, {
                 x: 'Wed',
-                y: 3.25,
-                z: 5.50
+                y: 6,
+                z: 3
             }, {
                 x: 'Thu',
-                y: 2.75,
-                z: 8
+                y: 8,
+                z: 2
             }, {
                 x: 'Fri',
-                y: 3.80,
-                z: 9.50
+                y: 10,
+                z: 4
             }, {
                 x: 'Sat',
-                y: 7,
-                z: 9.70
+                y: 11,
+                z: 2
             }, {
                 x: 'Sun',
-                y: 8.50,
-                z: 9.55
+                y: 0,
+                z: 1
             }],
 
             xkey: 'x',

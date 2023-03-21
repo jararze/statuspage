@@ -19,8 +19,8 @@
 {{--        @vite(['resources/css/app.css', 'resources/js/app.js'])--}}
         <link rel="stylesheet" href="{{ asset('/assets/plugins/bootstrap/css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('/assets/css/main.css') }}">
-        <link rel="stylesheet" href="{{ asset('assets/css/timeline.css') }}">
         <link rel="stylesheet" href="{{ asset('/assets/css/color_skins.css') }}">
+        @stack('styles')
     </head>
     <body class="theme-black">
         <div class="page-loader-wrapper">
@@ -41,12 +41,13 @@
                 {{ $slot }}
             </main>
 
-            @yield('content')
+{{--            @yield('content')--}}
         </div>
         {{--<!-- Jquery Core Js -->--}}
         <script src="{{asset('assets/bundles/libscripts.bundle.js')}}"></script> <!-- Lib Scripts Plugin Js -->
         <script src="{{asset('assets/bundles/vendorscripts.bundle.js')}}"></script> <!-- Lib Scripts Plugin Js -->
         <script src="{{asset('assets/bundles/mainscripts.bundle.js')}}"></script>
+        @stack('script')
     </body>
 </html>
 

@@ -76,7 +76,7 @@ class User extends Authenticatable implements MustVerifyEmail
         ])->save();
 
         $client = new Client(env('TWILIO_SID'), env('TWILIO_AUTH_TOKEN'));
-        $client->messages->create($this->phone, ['from' => '+15077065229', 'body' => "Hey {$code} Good luck on the bar exam!"]);
+        $client->messages->create($this->phone, ['from' => '+15077065229', 'body' => "Hey your code is {$code} Confirm your account!"]);
 
 
 //        $client->calls->create(

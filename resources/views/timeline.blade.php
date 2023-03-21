@@ -1,3 +1,6 @@
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('assets/css/timeline.css') }}">
+@endpush
 <x-app-layout>
     <section class="content">
         <div class="block-header">
