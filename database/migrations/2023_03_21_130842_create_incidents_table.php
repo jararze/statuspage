@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('incident', function (Blueprint $table) {
+        Schema::create('incidents', function (Blueprint $table) {
             $table->id()->unique();
             $table->string('title');
             $table->text('description');
-            $table->timestamp('incidentReported')->nullable();
+            $table->timestamp('incident_reported_at');
+            $table->timestamps();
         });
     }
 
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('incident');
+        Schema::dropIfExists('incidents');
     }
 };

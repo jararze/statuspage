@@ -24,8 +24,9 @@ Route::get('/timeline', function(){
     return view('timeline');
 });
 
-Route::get('createIncident', [IncidentsController::class, 'form'])->name('formIncident');
-Route::post('createIncident', [IncidentsController::class, 'store'])->name('createIncident');
+Route::get('incidents/createIncident', [IncidentsController::class, 'form'])->name('formIncident');
+Route::post('incidents/createIncident', [IncidentsController::class, 'store'])->name('createIncident');
+Route::get('incidents/listIncident', [IncidentsController::class, 'list'])->name('listIncidents');
 
 //Route::get('/createIncident', function() {
 //    return view('createIncident');

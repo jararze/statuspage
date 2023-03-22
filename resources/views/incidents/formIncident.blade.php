@@ -32,6 +32,20 @@
                     <div class="card">
                         <div class="body">
                             <h4>Create new incident</h4>
+{{--                            {{dd($success)}}--}}
+                            @if (isset($success))
+                                <div class="alert bg-green alert-dismissible" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    {{$success}}
+                                </div>
+                            @endif
+                            @if (isset($errores))
+                                <div class="alert alert-warning alert-dismissible" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    {{$errores}}
+                                </div>
+                            @endif
+
                         </div>
                     </div>
                 </div>
@@ -75,47 +89,47 @@
                                 <div class="row clearfix">
                                     <div class="col-lg-8 col-md-12">
                                         <p> <b>Impacted Service</b> </p>
-                                        <select class="form-control show-tick" data-live-search="true" multiple>
-                                            <option>Truck</option>
-                                            <option>SAP</option>
-                                            <option>Circuito de camiones</option>
-                                            <option>Foxtrot</option>
+                                        <select class="form-control show-tick" data-live-search="true" multiple name="impactedServices[]">
+                                            <option value="Truck">Truck</option>
+                                            <option value="Sap">SAP</option>
+                                            <option value="CC">Circuito de camiones</option>
+                                            <option value="Foxtrot">Foxtrot</option>
                                         </select>
                                     </div>
                                     <div class="col-lg-4 col-md-12">
                                         <p> <b>Impact</b> </p>
-                                        <select class="form-control show-tick">
-                                            <option>None</option>
-                                            <option>Minor</option>
-                                            <option>Mayor</option>
-                                            <option>Critical</option>
+                                        <select class="form-control show-tick" name="impact">
+                                            <option value="None">None</option>
+                                            <option value="Minor">Minor</option>
+                                            <option value="Mayor">Mayor</option>
+                                            <option value="Critical">Critical</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="row clearfix" style="margin-top:25px;">
                                     <div class="col-lg-6 col-md-12">
                                         <p> <b>Impacted Zone</b> </p>
-                                        <select class="form-control show-tick" data-live-search="true" multiple>
-                                            <option>Argentina</option>
-                                            <option>Bolivia</option>
-                                            <option>Brasil</option>
-                                            <option>Chile</option>
-                                            <option>Paraguay</option>
-                                            <option>Uruguay</option>
+                                        <select class="form-control show-tick" data-live-search="true" multiple name="zone[]">
+                                            <option value="Ar">Argentina</option>
+                                            <option value="Bo">Bolivia</option>
+                                            <option value="Br">Brasil</option>
+                                            <option value="Cl">Chile</option>
+                                            <option value="Py">Paraguay</option>
+                                            <option value="Uy">Uruguay</option>
                                         </select>
                                     </div>
                                     <div class="col-lg-6 col-md-12">
-                                        <p> <b>Impact</b> </p>
-                                        <select class="form-control show-tick" multiple>
+                                        <p> <b>Inner Zone</b> </p>
+                                        <select class="form-control show-tick" multiple name="innerZone[]">
                                             <optgroup label="Argentina">
-                                                <option>Quilmes</option>
-                                                <option>Mercado Central</option>
-                                                <option>Estructura Central</option>
+                                                <option value="Ar-Quilmes">Quilmes</option>
+                                                <option value="Ar-MercadoCentral">Mercado Central</option>
+                                                <option value="Ar-EstructuraCentral">Estructura Central</option>
                                             </optgroup>
                                             <optgroup label="Bolivia">
-                                                <option>La Paz</option>
-                                                <option>Cochabamba</option>
-                                                <option>Santa Cruz</option>
+                                                <option value="Bo-LaPaz">La Paz</option>
+                                                <option value="Bo-Cochabamba">Cochabamba</option>
+                                                <option value="Bo-SantaCruz">Santa Cruz</option>
                                             </optgroup>
                                         </select>
                                     </div>
