@@ -16,6 +16,9 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->timestamp('incident_reported_at');
+            $table->boolean('status')->default('0');
+            $table->boolean('war_room_opened')->default('0');
+            $table->timestamp('war_room_opened_at');
             $table->timestamps();
         });
     }

@@ -34,7 +34,28 @@ class IncidentsController extends Controller
     }
     public function list(): view
     {
-        return view('incidents.listIncidents');
+//        $incidents = Incident::where('status', '0');
+        $countIncidentsOpened  = Incident::where('status', '0')->count();
+        $countIncidentsAllTime = Incident::all()->count();
+        $incidents             = Incident::all()->sortByDesc("id");
+//        dd($incidents);
+//        foreach ($incidents as $incident) {
+//            dd($incident);
+//        }
+        return view('incidents.listIncidents', compact('incidents','countIncidentsOpened','countIncidentsAllTime'));
+//        return view('incidents.listIncidents');
+
+    }
+    public function single(): view
+    {
+//        $incidents = Incident::where('status', '0');
+//        $incidents = Incident::all()->sortByDesc("id");
+//        dd($incidents);
+//        foreach ($incidents as $incident) {
+//            dd($incident);
+//        }
+//        return view('incidents.listIncidents', compact('incidents'));
+        return view('incidents.singleIncident');
 
     }
 }
