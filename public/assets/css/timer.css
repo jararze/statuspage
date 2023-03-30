@@ -1,0 +1,43 @@
+.container-fluid .time{
+    display: flex;
+    align-items: center;
+}
+.container-fluid .time .time-colon{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.time .time-colon .am_pm{
+    position: absolute;
+    top: 0;
+    right: -50px;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.time .time-colon .time-text{
+    height: 70px;
+    width: 70px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background: #F0F8FF;
+    border-radius: 6px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.time .time-colon .time-text,
+.time .time-colon .colon{
+    font-size: 23px;
+    font-weight: 600;
+}
+.time .time-colon .colon{
+    font-size: 18px;
+    margin: 0 10px;
+}
+.time .time-colon .time-text .text{
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}

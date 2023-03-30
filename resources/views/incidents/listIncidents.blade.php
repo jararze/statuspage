@@ -173,8 +173,25 @@
                                     </div>
                                     <div class="media-body">
                                         <div class="media-heading">
-                                            <a href="/incidents/singleIncident/{{$incident->id}}" class="m-r-10">{{$incident->title}}</a>
-                                            <span class="badge badge-warning bg-red">Sev 1 - Critical</span>
+                                            <a href="/incidents/singleIncident/{{$incident->id}}" class="m-r-10"><strong>{{$incident->title}}</strong></a>
+                                            @if($incident->severity === 'None')
+                                                <span class="badge badge-warning bg-green">{{$incident->severity}}</span>
+                                            @endif
+                                            @if($incident->severity === 'Severity 4 / SuperMinor')
+                                                <span class="badge badge-warning bg-lime">{{$incident->severity}}</span>
+                                            @endif
+                                            @if($incident->severity === 'Severity 3 / Minor')
+                                                <span class="badge badge-warning bg-amber">{{$incident->severity}}</span>
+                                            @endif
+                                            @if($incident->severity === 'Severity 2 / Mayor')
+                                                <span class="badge badge-warning bg-pink">{{$incident->severity}}</span>
+                                            @endif
+                                            @if($incident->severity === 'Severity 1 / Critical')
+                                                <span class="badge badge-warning bg-orange">{{$incident->severity}}</span>
+                                            @endif
+                                            @if($incident->severity === 'Severity 0 / Catastrophe')
+                                                <span class="badge badge-warning bg-red">{{$incident->severity}}</span>
+                                            @endif
                                             <small class="float-right text-muted"><time class="hidden-sm-down" datetime="2017">{{$incident->incident_reported_at->format('H:i:s')}}</time><i class="zmdi zmdi-alarm"></i> </small>
                                         </div>
                                         <p class="msg">{{$incident->description}}</p>

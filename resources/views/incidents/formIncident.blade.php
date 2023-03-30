@@ -100,9 +100,11 @@
                                         <p> <b>Impact</b> </p>
                                         <select class="form-control show-tick" name="impact">
                                             <option value="None">None</option>
-                                            <option value="Minor">Minor</option>
-                                            <option value="Mayor">Mayor</option>
-                                            <option value="Critical">Critical</option>
+                                            <option value="Severity 4 / SuperMinor">Sev4 - SuperMinor</option>
+                                            <option value="Severity 3 / Minor">Sev3 - Minor</option>
+                                            <option value="Severity 2 / Mayor">Sev2 - Mayor</option>
+                                            <option value="Severity 1 / Critical">Sev1 - Critical</option>
+                                            <option value="Severity 0 / Catastrophe">Sev0 - Catastrophe</option>
                                         </select>
                                     </div>
                                 </div>
